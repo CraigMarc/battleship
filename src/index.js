@@ -59,3 +59,6 @@ destroyer.hit(4)
 
   console.log(destroyer)
   console.log(destroyer.sunk())
+
+let carrier = new Ship(6)
+console.log(carrier)
