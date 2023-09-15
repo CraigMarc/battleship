@@ -1,27 +1,9 @@
 
-import {
-    capitalize,
-    reverse,
-  } from "./index";
-
   import {
     Ship,
   } from "./ship";
 
   
-  /*
-  //capitalize string test
-  
-  test('check if first letter is capital', () => {
-    expect(capitalize('hello')).toBe('Hello');
-  });
-  
-  //reverse string test
-  
-  test('check if string is reversed', () => {
-    expect(reverse('real')).toBe('laer');
-  });
-*/
 
 //check if ship is built
 let testShip = new Ship(3)
