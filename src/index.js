@@ -2,6 +2,12 @@
 
 //import './styles.css';
 
+import {
+    Ship,
+  } from "./ship";
+  
+
+/*
 //capitalize string
 function capitalize(string) {
 
@@ -26,3 +32,30 @@ export {
     reverse,
     
 };
+
+*/
+
+//ship class
+/*
+class Ship {
+
+    constructor(length) {
+      this.length = length;
+      this.hits = [];
+      this.sunk = sunk;
+    }
+
+
+  
+  }
+*/
+
+
+  let destroyer = new Ship(4)
+destroyer.hit(1)
+destroyer.hit(2)
+destroyer.hit(3)
+destroyer.hit(4)
+
+  console.log(destroyer)
+  console.log(destroyer.sunk())

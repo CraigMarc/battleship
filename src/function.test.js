@@ -5,8 +5,6 @@ import {
   } from "./index";
   
   
-  
-  
   //capitalize string test
   
   test('check if first letter is capital', () => {
@@ -18,3 +16,5 @@ import {
   test('check if string is reversed', () => {
     expect(reverse('real')).toBe('laer');
   });
+
+  
