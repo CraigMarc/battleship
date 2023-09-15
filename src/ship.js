@@ -1,6 +1,5 @@
 class Ship {
-    //length: number
-    //hits: number[]
+    
   
     constructor(length) {
       this.length = length
