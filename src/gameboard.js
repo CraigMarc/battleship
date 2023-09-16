@@ -23,7 +23,7 @@ class Board {
             ]
 
     }
-
+//check ship placement
     checkPlacement(x, y, ship, position) {
 
         let length = ship.length
@@ -55,7 +55,7 @@ class Board {
         return 'yes'
     }
 
-
+//place ship
     placeShip(x, y, ship, position) {
 
         let length = ship.length
@@ -79,7 +79,7 @@ class Board {
         return this.board
 
     }
-
+//attack
     attack(x, y) {
 
        if (this.board[y][x] == "" && this.board[y][x] != 'x' && this.board[y][x] != '*') {
@@ -103,12 +103,14 @@ class Board {
         
        }
        
-      
-
-
     }
 
 }
+
+
+ 
+
+
 
 
 
