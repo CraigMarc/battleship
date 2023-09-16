@@ -1,8 +1,9 @@
 class Ship {
     
   
-    constructor(length) {
+    constructor(length, type) {
       this.length = length
+      this.type = type
       this.hits = []
     }
   

@@ -5,6 +5,8 @@ import {
 
 class Board {
 
+    
+
     constructor() {
         this.board =
             [
@@ -78,6 +80,32 @@ class Board {
 
     }
 
+    attack(x, y) {
+
+       if (this.board[y][x] == "" && this.board[y][x] != 'x' && this.board[y][x] != '*') {
+
+        this.board[y][x] = 'x'
+        return 'not hit'
+       }
+       if (this.board[y][x] == 'x' || this.board[y][x] == '*') {
+
+        return 'taken'
+       }
+
+       else {
+
+        let type = this.board[y][x].type
+        
+        this.board[y][x] = '*'
+
+        return type
+        
+       }
+       
+      
+
+
+    }
 
 }
 
