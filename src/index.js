@@ -30,17 +30,17 @@ console.log(destroyer)
 
 let board1 = new Board
 board1.placeShip(0, 0, destroyer, 'v')
-board1.placeShip(3, 2, patrol, 'h')
+//board1.placeShip(3, 2, patrol, 'h')
 
-console.log(board1.checkPlacement(1, 0, patrol, 'h'))
+//console.log(board1.checkPlacement(1, 0, patrol, 'h'))
 
 
-board1.attack(5,6)
-board1.attack(0,1)
-board1.attack(0,0)
+//board1.attack(5,6)
+//board1.attack(0,1)
+//board1.attack(0,0)
 board1.attack(3,2)
 
 console.log(destroyer)
-console.log(patrol)
+//console.log(patrol)
 
 console.log(board1)

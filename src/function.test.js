@@ -1,12 +1,17 @@
 
-  import {
-    Ship,
-  } from "./ship";
+import {
+  Ship,
+} from "./ship";
+
+import {
+  Board,
+} from "./gameboard";
 
   
 
 //check if ship is built
 let testShip = new Ship(3)
+let testShip2 = new Ship(5)
 
 test('check if ship is built', () => {
   expect(testShip).toEqual({
@@ -42,4 +47,45 @@ test('check if ship is sunk', () => {
 });
 
 // gameboard tests
+let testBoard = new Board
+testBoard.placeShip(0, 0, testShip, 'v')
+//check if shot misses
 
+test('check if shot misses', () => {
+  
+  expect(testBoard.attack(3,2)).toBe('not hit');
+  expect(testBoard.board[2][3]).toBe('x');
+});
+
+//check if shot hits
+test('check if shot hits', () => {
+  
+  expect(testBoard.attack(0, 0)).toBe('hit');
+  expect(testBoard.board[0][0]).toBe('*');
+
+});
+
+//make sure shot not placed twice
+
+test('make sure shot not placed twice', () => {
+  testBoard.attack(3, 2)
+  expect(testBoard.attack(3, 2)).toBe('taken');
+  
+});
+
+
+// test if placement allowed board
+
+test('test if placement allowed board', () => {
+  
+  expect(testBoard.checkPlacement(0, 5, testShip, 'v')).toBe('yes');
+  
+});
+
+// test if placement not allowed 
+
+test('test if placement not allowed ', () => {
+  
+  expect(testBoard.checkPlacement(0, 8, testShip, 'v')).toBe('no');
+  
+});
