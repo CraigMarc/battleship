@@ -40,3 +40,6 @@ test('check if ship is sunk', () => {
   testShip.hit(3)
   expect(testShip.sunk()).toBe('sunk');
 });
+
+// gameboard tests
+

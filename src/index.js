@@ -27,5 +27,6 @@ console.log(carrier)
 
 let board1 = new Board
 board1.placeShip(0, 0, 6, 'v')
+console.log(board1.checkPlacement(1, 0, 6, 'h'))
 
 console.log(board1)
