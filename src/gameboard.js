@@ -1,3 +1,8 @@
+import {
+    Ship,
+  } from "./ship";
+
+
 class Board {
 
     constructor() {
@@ -17,7 +22,11 @@ class Board {
 
     }
 
-    checkPlacement(x, y, length, position) {
+    checkPlacement(x, y, ship, position) {
+
+        let length = ship.length
+
+
         if (position == 'h' && x + length > 10) {
             return 'no'
         }
@@ -45,11 +54,13 @@ class Board {
     }
 
 
-    placeShip(x, y, length, position) {
+    placeShip(x, y, ship, position) {
+
+        let length = ship.length
 
         if (position == 'h') {
             for (let i = 0; i < length; i++) {
-                this.board[y][x + i] = "s"
+                this.board[y][x + i] = ship
 
             }
 
@@ -58,7 +69,7 @@ class Board {
         if (position == 'v') {
 
             for (let i = 0; i < length; i++) {
-                this.board[y + i][x] = "s"
+                this.board[y + i][x] = ship
 
             }
 
