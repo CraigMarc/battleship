@@ -33,41 +33,54 @@ let computerBoard = new Board
 function placeShipsRandomly(ship) {
 
   function getRandomCoor() {
-    let x = Math.floor(Math.random() * 11);
+    let x = Math.floor(Math.random() * 10);
 
 
     return (x)
   }
-
+  function getRandomOrr() {
+    let orr = Math.floor(Math.random() * 1);
+    if (orr == 0) {
+      return 'v'
+    }
+   else {
+    return 'h'
+   }
+   
+  }
 
 
   function checkShip(ship) {
+    let coorArr = []
     let x = getRandomCoor()
     let y = getRandomCoor()
-    let coorArr = []
-    console.log(x)
-    console.log(y)
-    let check = computerBoard.checkPlacement(x, y, ship, 'h')
+    let cOrr = getRandomOrr()
+    
+    
+   
+    let check = computerBoard.checkPlacement(x, y, ship, cOrr)
 
     if (check == 'yes') {
       coorArr.push(x)
       coorArr.push(y)
+     
+      computerBoard.placeShip(x, y, ship, cOrr)
       return coorArr
     }
-    else checkShip(ship)
+    if (check == 'no')  {checkShip(ship)
+    
+  }
   }
 
-  let goodCoord = checkShip(ship)
- 
+  checkShip(ship)
   
-  computerBoard.placeShip(goodCoord[0], goodCoord[1], ship, 'v')
 }
 
 placeShipsRandomly(cSub)
 placeShipsRandomly(cPatrol)
 placeShipsRandomly(cDestroyer)
-//placeShipsRandomly(cCarrier)
-//placeShipsRandomly(cBattleship)
+placeShipsRandomly(cCarrier)
+placeShipsRandomly(cBattleship)
 
 
 console.log(computerBoard)

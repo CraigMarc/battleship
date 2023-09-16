@@ -23,21 +23,23 @@ class Board {
             ]
 
     }
-//check ship placement
+
     checkPlacement(x, y, ship, position) {
 
         let length = ship.length
 
 
-        if (position == 'h' && x + length > 10) {
+        if (position == 'h' && x + length >= 10) {
             return 'no'
         }
-        if (position == 'v' && y + length > 10) {
+        if (position == 'v' && y + length >= 10) {
             return 'no'
         }
         if (position == 'h') {
+            
             for (let i = 0; i < length; i++) {
-                if (this.board[y][x + i] != "") {
+                
+                if (this.board[y][i] != "") {
                     return 'no'
                 }
             }
@@ -45,7 +47,7 @@ class Board {
         if (position == 'v') {
 
             for (let i = 0; i < length; i++) {
-                if (this.board[y + i][x] != "") {
+                if (this.board[i][x] != "") {
                     return 'no'
                 }
 
@@ -55,7 +57,7 @@ class Board {
         return 'yes'
     }
 
-//place ship
+
     placeShip(x, y, ship, position) {
 
         let length = ship.length
@@ -79,7 +81,7 @@ class Board {
         return this.board
 
     }
-//attack
+
     attack(x, y) {
 
        if (this.board[y][x] == "" && this.board[y][x] != 'x' && this.board[y][x] != '*') {
@@ -103,14 +105,12 @@ class Board {
         
        }
        
+      
+
+
     }
 
 }
-
-
- 
-
-
 
 
 
