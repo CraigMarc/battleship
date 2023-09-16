@@ -94,11 +94,12 @@ class Board {
 
        else {
 
-        let type = this.board[y][x].type
+        
+        this.board[y][x].hit(1)
         
         this.board[y][x] = '*'
 
-        return type
+        return 'hit'
         
        }
        
