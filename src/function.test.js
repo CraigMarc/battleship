@@ -46,6 +46,8 @@ test('check if ship is sunk', () => {
   expect(testShip.sunk()).toBe('sunk');
 });
 
+
+
 // gameboard tests
 let testBoard = new Board
 testBoard.placeShip(0, 0, testShip, 'v')
@@ -68,7 +70,7 @@ test('check if shot hits', () => {
 //make sure shot not placed twice
 
 test('make sure shot not placed twice', () => {
-  testBoard.attack(3, 2)
+  
   expect(testBoard.attack(3, 2)).toBe('taken');
   
 });
@@ -78,7 +80,7 @@ test('make sure shot not placed twice', () => {
 
 test('test if placement allowed board', () => {
   
-  expect(testBoard.checkPlacement(0, 5, testShip, 'v')).toBe('yes');
+  expect(testBoard.checkPlacement(0, 5, testShip2, 'v')).toBe('yes');
   
 });
 
@@ -86,6 +88,16 @@ test('test if placement allowed board', () => {
 
 test('test if placement not allowed ', () => {
   
-  expect(testBoard.checkPlacement(0, 8, testShip, 'v')).toBe('no');
+  expect(testBoard.checkPlacement(0, 8, testShip2, 'v')).toBe('no');
   
 });
+
+// test to see if gameboard increases hits on ship
+
+test('test to see if gameboard increases hits on ship ', () => {
+  testBoard.placeShip(0, 3, testShip2, 'v')
+  testBoard.attack(0, 3)
+  expect(testShip2.hits).toEqual([1]);
+  
+});
+
