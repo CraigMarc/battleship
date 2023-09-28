@@ -1,6 +1,6 @@
 //change later when want to use css ******
 
-//import './styles.css';
+import './styles.css';
 
 import {
   Ship,
@@ -9,6 +9,12 @@ import {
 import {
   Board,
 } from "./gameboard";
+
+import {
+  createPlayerGrid,
+} from "./dom";
+
+
 
 // create player fleet
 let destroyer = new Ship(3)
@@ -84,6 +90,8 @@ placeShipsRandomly(cBattleship)
 
 
 console.log(computerBoard)
+
+createPlayerGrid(computerBoard)
 
 /*
 //destroyer.hit(3)
