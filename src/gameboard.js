@@ -1,11 +1,11 @@
 import {
     Ship,
-  } from "./ship";
+} from "./ship";
 
 
 class Board {
 
-    
+
 
     constructor() {
         this.board =
@@ -36,9 +36,9 @@ class Board {
             return 'no'
         }
         if (position == 'h') {
-            
+
             for (let i = 0; i < length; i++) {
-                
+
                 if (this.board[y][i] != "") {
                     return 'no'
                 }
@@ -84,28 +84,28 @@ class Board {
 
     attack(x, y) {
 
-       if (this.board[y][x] == "" && this.board[y][x] != 'x' && this.board[y][x] != '*') {
+        if (this.board[y][x] == "" && this.board[y][x] != 'x' && this.board[y][x] != '*') {
 
-        this.board[y][x] = 'x'
-        return 'not hit'
-       }
-       if (this.board[y][x] == 'x' || this.board[y][x] == '*') {
+            this.board[y][x] = 'x'
+            return 'not hit'
+        }
+        if (this.board[y][x] == 'x' || this.board[y][x] == '*') {
 
-        return 'taken'
-       }
+            return 'taken'
+        }
 
-       else {
+        else {
 
-        
-        this.board[y][x].hit(1)
-        
-        this.board[y][x] = '*'
 
-        return 'hit'
-        
-       }
-       
-      
+            this.board[y][x].hit(1)
+
+            this.board[y][x] = '*'
+
+            return 'hit'
+
+        }
+
+
 
 
     }

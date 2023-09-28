@@ -18,7 +18,7 @@ import {
 
 import {
   computerPlayer,
-  
+
 } from "./player";
 
 
@@ -56,10 +56,10 @@ function placeShipsRandomly(ship) {
     if (orr == 0) {
       return 'v'
     }
-   else {
-    return 'h'
-   }
-   
+    else {
+      return 'h'
+    }
+
   }
 
 
@@ -68,25 +68,26 @@ function placeShipsRandomly(ship) {
     let x = getRandomCoor()
     let y = getRandomCoor()
     let cOrr = getRandomOrr()
-    
-    
-   
+
+
+
     let check = computerBoard.checkPlacement(x, y, ship, cOrr)
 
     if (check == 'yes') {
       coorArr.push(x)
       coorArr.push(y)
-     
+
       computerBoard.placeShip(x, y, ship, cOrr)
       return coorArr
     }
-    if (check == 'no')  {checkShip(ship)
-    
-  }
+    if (check == 'no') {
+      checkShip(ship)
+
+    }
   }
 
   checkShip(ship)
-  
+
 }
 
 placeShipsRandomly(cSub)
@@ -103,14 +104,15 @@ createComputerGrid(computerBoard)
 //create player board
 let playerBoard = new Board
 playerBoard.placeShip(0, 0, destroyer, 'v')
-playerBoard.placeShip(4, 5, patrol, 'v' )
+playerBoard.placeShip(4, 5, patrol, 'v')
 
 computerPlayer(playerBoard)
-playerBoard.attack(0,0)
+playerBoard.attack(0, 0)
 createPlayerGrid(playerBoard)
 
+//add eventlistener for player
 
-function player (board) {
+function player(board) {
 
   const spot = document.querySelectorAll(".grid");
 
@@ -125,19 +127,34 @@ function player (board) {
     let y = arr[0]
     let x = arr[1]
 
-    let attack = board.attack(x,y)
+    let attack = board.attack(x, y)
+    computerPlayer(playerBoard)
     removeBoard()
     createComputerGrid(computerBoard)
     createPlayerGrid(playerBoard)
-    console.log(x , y)
+    console.log(x, y)
     console.log(board)
     return attack
   }
- 
+
+}
+player(computerBoard)
+
+
+// play round 
+/*
+function playRound() {
+
+  player(computerBoard)
+  computerPlayer(playerBoard)
+  removeBoard()
+  createComputerGrid(computerBoard)
+  createPlayerGrid(playerBoard)
+
 }
 
-
-player(computerBoard)
+playRound()
+//
 
 /*
 //destroyer.hit(3)

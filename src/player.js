@@ -1,7 +1,7 @@
 
 
 function computerPlayer(board) {
-  
+
 
   function getRandom() {
     let rand = Math.floor(Math.random() * 10);
@@ -16,7 +16,7 @@ function computerPlayer(board) {
     let x = getRandom()
     let y = getRandom()
 
-    let attack = board.attack(x,y)
+    let attack = board.attack(x, y)
     if (attack == 'taken') {
       makePlacement()
     }
@@ -31,5 +31,5 @@ function computerPlayer(board) {
 
 export {
   computerPlayer,
- 
+
 };
