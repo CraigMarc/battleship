@@ -1,10 +1,27 @@
 #container {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#computerContainer {
     width: 300px;
     height: 300px;
     display: flex;
     flex-wrap: wrap;
 
 }
+
+#playerContainer {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
 
 .grid {
     border: solid;

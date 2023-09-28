@@ -7,7 +7,7 @@ function createPlayerGrid (array) {
 
         for(let y=0; y<array.board[i].length; y++) {
             
-         const container = document.querySelector('#container');
+         const container = document.querySelector('#playerContainer');
          const grid = document.createElement('div');
         
          grid.classList.add('grid');
@@ -26,7 +26,7 @@ function createPlayerGrid (array) {
     
             for(let y=0; y<array.board[i].length; y++) {
                 
-             const container = document.querySelector('#container');
+             const container = document.querySelector('#computerContainer');
              const grid = document.createElement('div');
             
              grid.classList.add('grid');

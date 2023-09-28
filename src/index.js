@@ -12,6 +12,7 @@ import {
 
 import {
   createPlayerGrid,
+  createComputerGrid,
 } from "./dom";
 
 
@@ -91,7 +92,14 @@ placeShipsRandomly(cBattleship)
 
 console.log(computerBoard)
 
-createPlayerGrid(computerBoard)
+createComputerGrid(computerBoard)
+
+//create player board
+let playerBoard = new Board
+playerBoard.placeShip(0, 0, destroyer, 'v')
+playerBoard.placeShip(4, 5, patrol, 'v' )
+
+createPlayerGrid(playerBoard)
 
 /*
 //destroyer.hit(3)
