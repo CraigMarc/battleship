@@ -15,7 +15,7 @@ function createPlayerGrid (array) {
          if (
             typeof array.board[i][y] === 'object' 
         ) {
-            grid.style.backgroundColor = 'black'; 
+            grid.style.backgroundColor = 'grey'; 
         }
 
         if (
@@ -50,6 +50,24 @@ function createPlayerGrid (array) {
              const grid = document.createElement('div');
             
              grid.classList.add('grid');
+
+             if (
+                typeof array.board[i][y] === 'object' 
+            ) {
+                grid.style.backgroundColor = 'grey'; 
+            }
+    
+            if (
+                array.board[i][y] === '*' 
+            ) {
+                grid.style.backgroundColor = 'red'; 
+            }
+    
+            if (
+                array.board[i][y] == 'x' 
+            ) {
+                grid.style.backgroundColor = 'green'; 
+            }
              
              container.appendChild(grid);
             }
