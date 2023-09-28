@@ -90,7 +90,7 @@ placeShipsRandomly(cCarrier)
 placeShipsRandomly(cBattleship)
 
 
-console.log(computerBoard)
+
 
 createComputerGrid(computerBoard)
 
@@ -99,7 +99,11 @@ let playerBoard = new Board
 playerBoard.placeShip(0, 0, destroyer, 'v')
 playerBoard.placeShip(4, 5, patrol, 'v' )
 
+playerBoard.attack(3,2)
+playerBoard.attack(0,0)
 createPlayerGrid(playerBoard)
+console.log(playerBoard)
+
 
 /*
 //destroyer.hit(3)

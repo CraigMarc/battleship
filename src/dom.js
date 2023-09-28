@@ -1,7 +1,7 @@
 
 
 function createPlayerGrid (array) {
-    
+    console.log(array.board[0][0])
 
     for (let i=0; i<array.board.length; i++) {
 
@@ -11,6 +11,26 @@ function createPlayerGrid (array) {
          const grid = document.createElement('div');
         
          grid.classList.add('grid');
+
+         if (
+            typeof array.board[i][y] === 'object' 
+        ) {
+            grid.style.backgroundColor = 'black'; 
+        }
+
+        if (
+            array.board[i][y] === '*' 
+        ) {
+            grid.style.backgroundColor = 'red'; 
+        }
+
+        if (
+            array.board[i][y] == 'x' 
+        ) {
+            grid.style.backgroundColor = 'green'; 
+        }
+
+        
          
          container.appendChild(grid);
         }
