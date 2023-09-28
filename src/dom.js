@@ -1,38 +1,41 @@
 
 
 function createPlayerGrid (array) {
-    console.log(array.board[0][0])
-
+    const outerContainer = document.querySelector('#container');
+    const containerCreate = document.createElement('div');
+    containerCreate.id = 'playerContainer'
+    outerContainer.appendChild(containerCreate);
+   
     for (let i=0; i<array.board.length; i++) {
 
         for(let y=0; y<array.board[i].length; y++) {
             
          const container = document.querySelector('#playerContainer');
-         const grid = document.createElement('div');
+         const grid2 = document.createElement('div');
         
-         grid.classList.add('grid');
+         grid2.classList.add('grid2');
 
          if (
             typeof array.board[i][y] === 'object' 
         ) {
-            grid.style.backgroundColor = 'grey'; 
+            grid2.style.backgroundColor = 'grey'; 
         }
 
         if (
             array.board[i][y] === '*' 
         ) {
-            grid.style.backgroundColor = 'red'; 
+            grid2.style.backgroundColor = 'red'; 
         }
 
         if (
             array.board[i][y] == 'x' 
         ) {
-            grid.style.backgroundColor = 'green'; 
+            grid2.style.backgroundColor = 'green'; 
         }
 
         
          
-         container.appendChild(grid);
+         container.appendChild(grid2);
         }
     
     }
@@ -40,6 +43,11 @@ function createPlayerGrid (array) {
     }
 
     function createComputerGrid (array) {
+
+        const outerContainer = document.querySelector('#container');
+    const containerCreate = document.createElement('div');
+    containerCreate.id = 'computerContainer'
+    outerContainer.appendChild(containerCreate);
     
 
         for (let i=0; i<array.board.length; i++) {
@@ -50,6 +58,7 @@ function createPlayerGrid (array) {
              const grid = document.createElement('div');
             
              grid.classList.add('grid');
+             grid.value = (i + "," + y)
 
              if (
                 typeof array.board[i][y] === 'object' 
@@ -76,8 +85,16 @@ function createPlayerGrid (array) {
         
         }
 
+        function removeBoard() {
+            const removePlayer = document.getElementById("playerContainer");
+            const removeComputer = document.getElementById("computerContainer");
+            removeComputer.remove()
+            removePlayer.remove()
+        }
+
     export {
         createPlayerGrid,
         createComputerGrid,
+        removeBoard,
     };
 

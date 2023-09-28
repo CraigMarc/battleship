@@ -13,10 +13,12 @@ import {
 import {
   createPlayerGrid,
   createComputerGrid,
+  removeBoard,
 } from "./dom";
 
 import {
   computerPlayer,
+  
 } from "./player";
 
 
@@ -108,6 +110,34 @@ playerBoard.attack(0,0)
 createPlayerGrid(playerBoard)
 
 
+function player (board) {
+
+  const spot = document.querySelectorAll(".grid");
+
+  spot.forEach((cell) => {
+    cell.addEventListener("click", playerPlacement);
+  });
+
+  function playerPlacement(e) {
+
+    let coor = e.target.value
+    let arr = coor.split(",")
+    let y = arr[0]
+    let x = arr[1]
+
+    let attack = board.attack(x,y)
+    removeBoard()
+    createComputerGrid(computerBoard)
+    createPlayerGrid(playerBoard)
+    console.log(x , y)
+    console.log(board)
+    return attack
+  }
+ 
+}
+
+
+player(computerBoard)
 
 /*
 //destroyer.hit(3)

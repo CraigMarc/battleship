@@ -28,7 +28,7 @@ body {
 }
 
 
-.grid {
+.grid, .grid2 {
     border: solid;
     border-width: 0.8px;
     font-size: 22px;
