@@ -15,6 +15,10 @@ import {
   createComputerGrid,
 } from "./dom";
 
+import {
+  computerPlayer,
+} from "./player";
+
 
 
 // create player fleet
@@ -99,10 +103,10 @@ let playerBoard = new Board
 playerBoard.placeShip(0, 0, destroyer, 'v')
 playerBoard.placeShip(4, 5, patrol, 'v' )
 
-playerBoard.attack(3,2)
+computerPlayer(playerBoard)
 playerBoard.attack(0,0)
 createPlayerGrid(playerBoard)
-console.log(playerBoard)
+
 
 
 /*
