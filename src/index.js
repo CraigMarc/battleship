@@ -112,7 +112,7 @@ createPlayerGrid(playerBoard)
 
 //add eventlistener for player
 
-function player(board) {
+function playRound(board) {
 
   const spot = document.querySelectorAll(".grid");
 
@@ -138,7 +138,7 @@ function player(board) {
   }
 
 }
-player(computerBoard)
+playRound(computerBoard)
 
 
 // play round 
