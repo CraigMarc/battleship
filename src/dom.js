@@ -60,7 +60,7 @@ function createComputerGrid(array) {
             grid.classList.add('grid');
             grid.value = (i + "," + y)
 
-           /* if (
+          /*  if (
                 typeof array.board[i][y] === 'object'
             ) {
                 grid.style.backgroundColor = 'grey';

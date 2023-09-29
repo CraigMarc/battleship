@@ -37,17 +37,18 @@ class Board {
         }
         if (position == 'h') {
 
-            for (let i = 0; i < length + 5; i++) {
+            for (let i = 0; i < length + 1; i++) {
 
-                if (this.board[y][i] != "") {
+                if (typeof this.board[y][i + x] === 'object') {
                     return 'no'
                 }
             }
         }
         if (position == 'v') {
 
-            for (let i = 0; i < length + 5; i++) {
-                if (this.board[i][x] != "") {
+            for (let i = 0; i < length + 1; i++) {
+               
+                    if (typeof this.board[i + y][x] === 'object') {
                     return 'no'
                 }
 
