@@ -119,8 +119,8 @@ createComputerGrid(computerBoard)
 let playerBoard = new Board
 
 
-computerPlayer(playerBoard)
-playerBoard.attack(0, 0)
+//computerPlayer(playerBoard)
+//playerBoard.attack(0, 0)
 createPlayerGrid(playerBoard)
 
 //add eventlistener for player
@@ -159,6 +159,7 @@ function playRound(board) {
 
       winner('Computer Wins')
       removeListener()
+      newGame()
     }
 
     else if (cDestroyer.sunk() == 'sunk' && cCarrier.sunk() == 'sunk' && cBattleship.sunk() == 'sunk'
@@ -166,6 +167,7 @@ function playRound(board) {
 
       winner('You Win')
       removeListener()
+      newGame()
     }
     else {
       playRound(computerBoard)
@@ -176,23 +178,49 @@ function playRound(board) {
 
 }
 
-// change board listener
+// change board listener and function
 
 function changeBoard() {
   const btn = document.getElementById("changeBoard");
 
   btn.addEventListener("click", () => {
 
+    
     playerBoard = new Board
     placePlayerShips()
     removeBoard()
     createComputerGrid(computerBoard)
     createPlayerGrid(playerBoard)
     buttons()
+    startGame()
     changeBoard()
+    
   });
 }
 
+//start game listener and function
+
+function startGame() {
+  const btn = document.getElementById("startGame");
+
+  btn.addEventListener("click", () => {
+    playRound(computerBoard)
+    console.log('start')
+   
+  });
+}
+
+// new game listener and function
+
+function newGame() {
+  const btn = document.getElementById("newGame");
+
+  btn.addEventListener("click", () => {
+   
+    console.log('new')
+   
+  });
+}
 
 
 
@@ -202,7 +230,7 @@ buttons()
 
 changeBoard()
 
-playRound(computerBoard)
+//playRound(computerBoard)
 
 
 // play round 

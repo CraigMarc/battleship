@@ -98,7 +98,12 @@ function winner(message) {
     const heading = document.createElement('h2');
     heading.id = 'heading'
     heading.textContent = message;
+    const newGame = document.createElement('button');
+    newGame.id = 'newGame'
+    newGame.textContent = 'Play Another Game'
     container.appendChild(heading);
+    container.appendChild(newGame);
+
 }
 
 function buttons() {
