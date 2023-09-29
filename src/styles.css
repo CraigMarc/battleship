@@ -1,9 +1,11 @@
 body {
     text-align: center;
+    background-color: #09046b;
 }
 
 h1 {
     font-size: 45px;
+    color: wheat;
 }
 
 #container {
@@ -16,19 +18,19 @@ h1 {
 }
 
 #computerContainer {
-    width: 300px;
+    width: 290px;
     height: 290px;
     display: flex;
     flex-wrap: wrap;
-
+    background-color: wheat;
 }
 
 #playerContainer {
-    width: 300px;
+    width: 290px;
     height: 290px;
     display: flex;
     flex-wrap: wrap;
-
+    background-color: wheat;
 }
 
 
@@ -53,11 +55,12 @@ h1 {
     width: 200px;
     border-radius: 10px;
     font-size: 17px;
-
+    background-color: wheat;
 }
 
 h2 {
     font-size: 35px;
     margin: 0;
     margin-bottom: 10px;
+    color: wheat;
 }
