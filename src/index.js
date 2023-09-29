@@ -45,7 +45,7 @@ let computerBoard = new Board
 
 // place computer ships
 
-function placeShipsRandomly(ship) {
+function placeShipsRandomly(ship, board) {
 
   function getRandomCoor() {
     let x = Math.floor(Math.random() * 10);
@@ -73,13 +73,13 @@ function placeShipsRandomly(ship) {
 
 
 
-    let check = computerBoard.checkPlacement(x, y, ship, cOrr)
+    let check = board.checkPlacement(x, y, ship, cOrr)
 
     if (check == 'yes') {
       coorArr.push(x)
       coorArr.push(y)
 
-      computerBoard.placeShip(x, y, ship, cOrr)
+      board.placeShip(x, y, ship, cOrr)
       return coorArr
     }
     if (check == 'no') {
@@ -91,12 +91,24 @@ function placeShipsRandomly(ship) {
   checkShip(ship)
 
 }
+//place computer ships
+placeShipsRandomly(cSub, computerBoard)
+placeShipsRandomly(cPatrol, computerBoard)
+placeShipsRandomly(cDestroyer, computerBoard)
+placeShipsRandomly(cCarrier, computerBoard)
+placeShipsRandomly(cBattleship, computerBoard)
 
-placeShipsRandomly(cSub)
-placeShipsRandomly(cPatrol)
-placeShipsRandomly(cDestroyer)
-placeShipsRandomly(cCarrier)
-placeShipsRandomly(cBattleship)
+// place player ships
+
+function placePlayerShips() {
+
+  placeShipsRandomly(sub, playerBoard)
+  placeShipsRandomly(patrol, playerBoard)
+  placeShipsRandomly(destroyer, playerBoard)
+  placeShipsRandomly(carrier, playerBoard)
+  placeShipsRandomly(battleship, playerBoard)
+
+}
 
 
 
@@ -105,8 +117,7 @@ createComputerGrid(computerBoard)
 
 //create player board
 let playerBoard = new Board
-playerBoard.placeShip(0, 0, destroyer, 'v')
-playerBoard.placeShip(4, 5, patrol, 'v')
+
 
 computerPlayer(playerBoard)
 playerBoard.attack(0, 0)
@@ -141,31 +152,55 @@ function playRound(board) {
     removeBoard()
     createComputerGrid(computerBoard)
     createPlayerGrid(playerBoard)
-    
 
-    if (destroyer.sunk() == 'sunk' && carrier.sunk() == 'sunk' && battleship.sunk() == 'sunk' 
-    &&  sub.sunk() == 'sunk' && patrol.sunk() == 'sunk') {
-     
+
+    if (destroyer.sunk() == 'sunk' && carrier.sunk() == 'sunk' && battleship.sunk() == 'sunk'
+      && sub.sunk() == 'sunk' && patrol.sunk() == 'sunk') {
+
       winner('Computer Wins')
       removeListener()
     }
-  
-    else if (cDestroyer.sunk() == 'sunk' && cCarrier.sunk() == 'sunk' && cBattleship.sunk() == 'sunk' 
-    &&  cSub.sunk() == 'sunk' && cPatrol.sunk() == 'sunk') {
-      
+
+    else if (cDestroyer.sunk() == 'sunk' && cCarrier.sunk() == 'sunk' && cBattleship.sunk() == 'sunk'
+      && cSub.sunk() == 'sunk' && cPatrol.sunk() == 'sunk') {
+
       winner('You Win')
-     removeListener()
+      removeListener()
     }
     else {
       playRound(computerBoard)
     }
-   
+
   }
-  
+
 
 }
 
+// change board listener
+
+function changeBoard() {
+  const btn = document.getElementById("changeBoard");
+
+  btn.addEventListener("click", () => {
+
+    playerBoard = new Board
+    placePlayerShips()
+    removeBoard()
+    createComputerGrid(computerBoard)
+    createPlayerGrid(playerBoard)
+    buttons()
+    changeBoard()
+  });
+}
+
+
+
+
+
+//******* get rid of later */
 buttons()
+
+changeBoard()
 
 playRound(computerBoard)
 
