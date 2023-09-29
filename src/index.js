@@ -59,8 +59,10 @@ function placeShipsRandomly(ship, board) {
     return (x)
   }
   function getRandomOrr() {
-    let orr = Math.floor(Math.random() * 1);
+    let orr = Math.floor(Math.random() * 2);
+    
     if (orr == 0) {
+    
       return 'v'
     }
     else {
@@ -75,7 +77,7 @@ function placeShipsRandomly(ship, board) {
     let x = getRandomCoor()
     let y = getRandomCoor()
     let cOrr = getRandomOrr()
-
+    
 
 
     let check = board.checkPlacement(x, y, ship, cOrr)
