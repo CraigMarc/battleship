@@ -60,9 +60,9 @@ function placeShipsRandomly(ship, board) {
   }
   function getRandomOrr() {
     let orr = Math.floor(Math.random() * 2);
-    
+
     if (orr == 0) {
-    
+
       return 'v'
     }
     else {
@@ -77,7 +77,7 @@ function placeShipsRandomly(ship, board) {
     let x = getRandomCoor()
     let y = getRandomCoor()
     let cOrr = getRandomOrr()
-    
+
 
 
     let check = board.checkPlacement(x, y, ship, cOrr)
@@ -87,9 +87,7 @@ function placeShipsRandomly(ship, board) {
       coorArr.push(y)
 
       board.placeShip(x, y, ship, cOrr)
-      console.log(x, y)
-      console.log(ship)
-      console.log(cOrr)
+
       return coorArr
     }
     if (check == 'no') {
@@ -154,12 +152,22 @@ function playRound(board) {
     let y = arr[0]
     let x = arr[1]
 
-    board.attack(x, y)
-    computerPlayer(playerBoard)
-    removeBoard()
-    createComputerGrid(computerBoard)
-    createPlayerGrid(playerBoard)
 
+    
+    if (board.board[y][x] == 'x' || board.board[y][x] == '*') {
+      
+      removeBoard()
+      createComputerGrid(computerBoard)
+      createPlayerGrid(playerBoard)
+
+    }
+    else {
+      board.attack(x, y)
+      computerPlayer(playerBoard)
+      removeBoard()
+      createComputerGrid(computerBoard)
+      createPlayerGrid(playerBoard)
+    }
 
     if (destroyer.sunk() == 'sunk' && carrier.sunk() == 'sunk' && battleship.sunk() == 'sunk'
       && sub.sunk() == 'sunk' && patrol.sunk() == 'sunk') {
@@ -213,7 +221,7 @@ function startGame() {
   btn.addEventListener("click", () => {
     removeButtons()
     playRound(computerBoard)
-    
+
 
   });
 }
@@ -225,7 +233,7 @@ function newGame() {
 
   btn.addEventListener("click", () => {
 
-    
+
     removeBoard()
     removeWinner()
     destroyer = new Ship(3)
