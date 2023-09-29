@@ -14,6 +14,7 @@ import {
   createPlayerGrid,
   createComputerGrid,
   removeBoard,
+  winner,
 } from "./dom";
 
 import {
@@ -120,6 +121,13 @@ function playRound(board) {
     cell.addEventListener("click", playerPlacement);
   });
 
+  function removeListener() {
+    const spot = document.querySelectorAll(".grid");
+    spot.forEach((cell) => {
+      cell.removeEventListener("click", playerPlacement);
+    });
+  }
+
   function playerPlacement(e) {
 
     let coor = e.target.value
@@ -134,10 +142,31 @@ function playRound(board) {
     createPlayerGrid(playerBoard)
     console.log(x, y)
     console.log(board)
-    return attack
+
+    if (destroyer.sunk() == 'sunk' && carrier.sunk() == 'sunk' && battleship.sunk() == 'sunk' 
+    &&  sub.sunk() == 'sunk' && patrol.sunk() == 'sunk') {
+      console.log('computer wins')
+      winner('Computer Wins')
+      removeListener()
+    }
+  
+    else if (cDestroyer.sunk() == 'sunk' && cCarrier.sunk() == 'sunk' && cBattleship.sunk() == 'sunk' 
+    &&  cSub.sunk() == 'sunk' && cPatrol.sunk() == 'sunk') {
+      console.log('you win')
+      winner('You Win')
+     removeListener()
+    }
+    else {
+      playRound(computerBoard)
+    }
+   
   }
+  
 
 }
+
+
+
 playRound(computerBoard)
 
 

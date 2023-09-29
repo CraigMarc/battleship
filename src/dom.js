@@ -92,9 +92,19 @@ function removeBoard() {
     removePlayer.remove()
 }
 
+function winner(message) {
+
+    const container = document.querySelector('#message');
+    const heading = document.createElement('h2');
+    heading.id = 'heading'
+    heading.textContent = message;
+    container.appendChild(heading);
+}
+
 export {
     createPlayerGrid,
     createComputerGrid,
     removeBoard,
+    winner,
 };
 
