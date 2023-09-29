@@ -16,6 +16,8 @@ import {
   removeBoard,
   winner,
   buttons,
+  removeWinner,
+  removeButtons,
 } from "./dom";
 
 import {
@@ -26,11 +28,13 @@ import {
 
 
 // create player fleet
+
 let destroyer = new Ship(3)
 let carrier = new Ship(5)
 let battleship = new Ship(4)
 let sub = new Ship(3)
 let patrol = new Ship(2)
+
 
 // create computer fleet
 
@@ -39,6 +43,7 @@ let cCarrier = new Ship(5)
 let cBattleship = new Ship(4)
 let cSub = new Ship(3)
 let cPatrol = new Ship(2)
+
 
 // create computer Board
 let computerBoard = new Board
@@ -92,12 +97,16 @@ function placeShipsRandomly(ship, board) {
 
 }
 //place computer ships
-placeShipsRandomly(cSub, computerBoard)
-placeShipsRandomly(cPatrol, computerBoard)
-placeShipsRandomly(cDestroyer, computerBoard)
-placeShipsRandomly(cCarrier, computerBoard)
-placeShipsRandomly(cBattleship, computerBoard)
 
+function placeComputerShips() {
+  placeShipsRandomly(cSub, computerBoard)
+  placeShipsRandomly(cPatrol, computerBoard)
+  placeShipsRandomly(cDestroyer, computerBoard)
+  placeShipsRandomly(cCarrier, computerBoard)
+  placeShipsRandomly(cBattleship, computerBoard)
+}
+
+placeComputerShips()
 // place player ships
 
 function placePlayerShips() {
@@ -185,7 +194,7 @@ function changeBoard() {
 
   btn.addEventListener("click", () => {
 
-    
+
     playerBoard = new Board
     placePlayerShips()
     removeBoard()
@@ -194,7 +203,7 @@ function changeBoard() {
     buttons()
     startGame()
     changeBoard()
-    
+
   });
 }
 
@@ -204,9 +213,10 @@ function startGame() {
   const btn = document.getElementById("startGame");
 
   btn.addEventListener("click", () => {
+    removeButtons()
     playRound(computerBoard)
-    console.log('start')
-   
+    
+
   });
 }
 
@@ -216,9 +226,28 @@ function newGame() {
   const btn = document.getElementById("newGame");
 
   btn.addEventListener("click", () => {
-   
-    console.log('new')
-   
+
+    
+    removeBoard()
+    removeWinner()
+    destroyer = new Ship(3)
+    carrier = new Ship(5)
+    battleship = new Ship(4)
+    sub = new Ship(3)
+    patrol = new Ship(2)
+    cDestroyer = new Ship(3)
+    cCarrier = new Ship(5)
+    cBattleship = new Ship(4)
+    cSub = new Ship(3)
+    cPatrol = new Ship(2)
+
+    computerBoard = new Board
+    placeComputerShips()
+    createComputerGrid(computerBoard)
+    playerBoard = new Board
+    createPlayerGrid(playerBoard)
+    buttons()
+    changeBoard()
   });
 }
 

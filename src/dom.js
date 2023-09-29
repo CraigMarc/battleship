@@ -106,6 +106,13 @@ function winner(message) {
 
 }
 
+function removeWinner () {
+    const removeWinner = document.getElementById("heading");
+    const removeButton = document.getElementById("newGame");
+    removeWinner.remove()
+    removeButton.remove()
+}
+
 function buttons() {
     const container = document.querySelector('#playerContainer');
     const buttonContainer = document.createElement('div');
@@ -122,11 +129,20 @@ function buttons() {
 
 }
 
+function removeButtons () {
+    const buttonContainer = document.getElementById("buttonContainer");
+    
+    buttonContainer.remove()
+
+}
+
 export {
     createPlayerGrid,
     createComputerGrid,
     removeBoard,
     winner,
     buttons,
+    removeWinner,
+    removeButtons,
 };
 
