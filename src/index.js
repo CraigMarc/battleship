@@ -15,6 +15,7 @@ import {
   createComputerGrid,
   removeBoard,
   winner,
+  buttons,
 } from "./dom";
 
 import {
@@ -164,7 +165,7 @@ function playRound(board) {
 
 }
 
-
+buttons()
 
 playRound(computerBoard)
 

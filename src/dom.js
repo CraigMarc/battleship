@@ -101,10 +101,27 @@ function winner(message) {
     container.appendChild(heading);
 }
 
+function buttons() {
+    const container = document.querySelector('#playerContainer');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.id = 'buttonContainer'
+    const changeBoard = document.createElement('button');
+    changeBoard.id = 'changeBoard'
+    changeBoard.textContent = 'Change Board'
+    const startGame = document.createElement('button');
+    startGame.id = 'startGame'
+    startGame.textContent = 'Start Game'
+    buttonContainer.appendChild(changeBoard)
+    buttonContainer.appendChild(startGame)
+    container.appendChild(buttonContainer)
+
+}
+
 export {
     createPlayerGrid,
     createComputerGrid,
     removeBoard,
     winner,
+    buttons,
 };
 
