@@ -135,24 +135,23 @@ function playRound(board) {
     let y = arr[0]
     let x = arr[1]
 
-    let attack = board.attack(x, y)
+    board.attack(x, y)
     computerPlayer(playerBoard)
     removeBoard()
     createComputerGrid(computerBoard)
     createPlayerGrid(playerBoard)
-    console.log(x, y)
-    console.log(board)
+    
 
     if (destroyer.sunk() == 'sunk' && carrier.sunk() == 'sunk' && battleship.sunk() == 'sunk' 
     &&  sub.sunk() == 'sunk' && patrol.sunk() == 'sunk') {
-      console.log('computer wins')
+     
       winner('Computer Wins')
       removeListener()
     }
   
     else if (cDestroyer.sunk() == 'sunk' && cCarrier.sunk() == 'sunk' && cBattleship.sunk() == 'sunk' 
     &&  cSub.sunk() == 'sunk' && cPatrol.sunk() == 'sunk') {
-      console.log('you win')
+      
       winner('You Win')
      removeListener()
     }
