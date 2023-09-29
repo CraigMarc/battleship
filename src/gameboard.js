@@ -37,7 +37,7 @@ class Board {
         }
         if (position == 'h') {
 
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i < length + 5; i++) {
 
                 if (this.board[y][i] != "") {
                     return 'no'
@@ -46,7 +46,7 @@ class Board {
         }
         if (position == 'v') {
 
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i < length + 5; i++) {
                 if (this.board[i][x] != "") {
                     return 'no'
                 }

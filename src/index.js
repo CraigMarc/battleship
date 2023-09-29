@@ -87,6 +87,9 @@ function placeShipsRandomly(ship, board) {
       coorArr.push(y)
 
       board.placeShip(x, y, ship, cOrr)
+      console.log(x, y)
+      console.log(ship)
+      console.log(cOrr)
       return coorArr
     }
     if (check == 'no') {
