@@ -119,7 +119,7 @@ function buttons() {
     buttonContainer.id = 'buttonContainer'
     const changeBoard = document.createElement('button');
     changeBoard.id = 'changeBoard'
-    changeBoard.textContent = 'Change Board'
+    changeBoard.textContent = 'Select Board'
     const startGame = document.createElement('button');
     startGame.id = 'startGame'
     startGame.textContent = 'Start Game'
